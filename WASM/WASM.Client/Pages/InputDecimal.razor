@@ -1,0 +1,56 @@
+﻿@using System.Text.RegularExpressions
+@using System.Globalization
+
+<input type="@_inputType"
+       value="@_currentValueAsString"
+       @onchange="this.OnValueChanged"
+       @oninput="this.OnValueInput"
+       @attributes="this.AdditionalAttributes" />
+
+@code {
+    [Parameter] public decimal Value { get; set; }
+    [Parameter] public EventCallback<decimal> ValueChanged { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object>? AdditionalAttributes { get; set; }
+    [Parameter] public string? NameAttributeValue { get; set; }
+    [Parameter] public bool UpdateOnInput { get; set; }
+    [Parameter] public bool AsNumber { get; set; }
+
+    private CultureInfo _currentCulture = Thread.CurrentThread.CurrentCulture;
+    private decimal _currentValue;
+    private string _inputType => AsNumber ? "number" : "text";
+    private string _currentValueAsString => BindConverter.FormatValue(this.Value, _currentCulture);
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        parameters.SetParameterProperties(this);
+
+        _currentValue = this.Value;
+
+        return base.SetParametersAsync(ParameterView.Empty);
+    }
+
+    private async Task OnValueChanged(ChangeEventArgs e)
+    {
+        // Get the value and callback if we're updating on the Change Event 
+        if (!this.UpdateOnInput)
+            await UpdateValue(e);
+    }
+
+    protected async Task OnValueInput(ChangeEventArgs e)
+    {
+        // Get the value and callback if we're updating on the Input Event
+        if (this.UpdateOnInput)
+            await UpdateValue(e);
+    }
+
+    protected async Task UpdateValue(ChangeEventArgs e)
+    {
+        var currentValueAsString = e.Value?.ToString() ?? string.Empty;
+
+        // Use built in component functionality to check the input string
+        if (!BindConverter.TryConvertToDecimal(currentValueAsString, _currentCulture, out _currentValue))
+            _currentValue = 0;
+
+        await this.ValueChanged.InvokeAsync(_currentValue);
+    }
+}

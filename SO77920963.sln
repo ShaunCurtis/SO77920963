@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO77920963", "SO77920963\SO77920963.csproj", "{5167B1A7-A0B1-4393-B0E9-7976CC390C42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SO77920963", "SO77920963\SO77920963.csproj", "{5167B1A7-A0B1-4393-B0E9-7976CC390C42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WASM", "WASM\WASM\WASM.csproj", "{9A9DC8C6-31CE-4B44-8F4C-09EDA5E7DEB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WASM.Client", "WASM\WASM.Client\WASM.Client.csproj", "{D8D2F828-063D-41D8-99E7-EAF601A4A3CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5167B1A7-A0B1-4393-B0E9-7976CC390C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5167B1A7-A0B1-4393-B0E9-7976CC390C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5167B1A7-A0B1-4393-B0E9-7976CC390C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9DC8C6-31CE-4B44-8F4C-09EDA5E7DEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9DC8C6-31CE-4B44-8F4C-09EDA5E7DEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9DC8C6-31CE-4B44-8F4C-09EDA5E7DEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9DC8C6-31CE-4B44-8F4C-09EDA5E7DEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D2F828-063D-41D8-99E7-EAF601A4A3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D2F828-063D-41D8-99E7-EAF601A4A3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D2F828-063D-41D8-99E7-EAF601A4A3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D2F828-063D-41D8-99E7-EAF601A4A3CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
