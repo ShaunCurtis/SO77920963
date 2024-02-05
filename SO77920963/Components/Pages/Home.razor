@@ -1,0 +1,30 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<div class="m-2 p-2 bg-light">
+    <label>As Text with Update on Exit (try typing 1,000)</label>
+    <InputDecimal @bind-Value="_value1" class="form-control mb-3" aria-required="true" placeholder="Total" />
+
+    <label>As Text with Update on input</label>
+    <InputDecimal UpdateOnInput @bind-Value="_value2" class="form-control mb-3" aria-required="true" placeholder="Total" />
+
+     <label>As Number with Update on Exit</label>
+     <InputDecimal UpdateOnInput AsNumber @bind-Value="_value3" class="form-control mb-3" aria-required="true" placeholder="Total" />
+ </div>
+
+<div class="bg-dark text-white m-2 p-2">
+    <pre>Value: @_value1</pre>
+    <pre>Value: @_value2</pre>
+    <pre>Value: @_value3</pre>
+</div>
+
+@code {
+    private decimal _value1;
+    private decimal _value2;
+    private decimal _value3;
+}
